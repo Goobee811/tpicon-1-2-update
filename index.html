@@ -822,18 +822,54 @@
     <!-- Product hero card -->
     <section class="hero-card">
       <div class="logo-box">
+        <!-- Hình ảnh Klerat 50g (hiển thị đầu tiên) -->
         <img
-          src="https://placehold.co/400x150/e2e8f0/9ca3af?text=ICON+10CS"
-          alt="ICON 10CS"
+          src="https://lh3.googleusercontent.com/d/1IIHJVQOy6e72GuCVIWH1uhoDxDebaSbU"
+          alt="Icon 10CS 62.5ml"
           loading="lazy"
           decoding="async"
+          id="image-1"
+          style="display: block"
         />
+
+        <!-- Hình ảnh Klerat 1kg (ẩn ban đầu) -->
+        <img
+          src="https://lh3.googleusercontent.com/d/1y_uPzAVyE4ukSOsw96Mhl70YBeTVkPhK"
+          alt="Icon 10CS 1L"
+          loading="lazy"
+          decoding="async"
+          id="image-2"
+          style="display: none"
+        />
+
         <div class="thumbnail-nav">
-          <div class="thumbnail active"></div>
-          <div class="thumbnail"></div>
-          <div class="thumbnail"></div>
+          <div
+            class="thumbnail active"
+            onclick="showImage('image-1', this)"
+          ></div>
+          <div class="thumbnail" onclick="showImage('image-2', this)"></div>
         </div>
       </div>
+
+      <script>
+        function showImage(imageId, thumbnailElement) {
+          // Ẩn tất cả các hình ảnh
+          document.querySelectorAll(".logo-box > img").forEach((img) => {
+            img.style.display = "none";
+          });
+
+          // Bỏ active khỏi tất cả thumbnail
+          document.querySelectorAll(".thumbnail").forEach((thumb) => {
+            thumb.classList.remove("active");
+          });
+
+          // Hiển thị hình ảnh được chọn
+          document.getElementById(imageId).style.display = "block";
+
+          // Đặt active cho thumbnail tương ứng
+          thumbnailElement.classList.add("active");
+        }
+      </script>
       <div class="info-box">
         <h1>ICON 10CS</h1>
         <span class="status">Đang bán</span>
